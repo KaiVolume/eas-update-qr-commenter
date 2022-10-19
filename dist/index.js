@@ -43,6 +43,7 @@ const core = __importStar(__nccwpck_require__(2186));
 const github = __importStar(__nccwpck_require__(5438));
 const expoQRBaseURL = 'https://qr.expo.dev/eas-update?appScheme=exp&host=u.expo.dev&updateId=';
 function run() {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const commentTitle = core.getInput('comment-title', { required: true });
@@ -50,7 +51,10 @@ function run() {
             const androidBuildID = core.getInput('android-build-id', { required: true });
             const iosQR = expoQRBaseURL + iosBuildID;
             const androidQR = expoQRBaseURL + androidBuildID;
-            const defaultMessage = `${commentTitle}\n` +
+            const defaultMessage = `## EAS Preview\n\n` +
+                `### Commit Message\n\n` +
+                `${(_a = github.context.payload.head_commit) === null || _a === void 0 ? void 0 : _a.message}\n` +
+                `${commentTitle}\n` +
                 `\n|iOS|Android|` +
                 `\n|:-:|:-:|` +
                 `\n|![iOS Build QR](${iosQR})|![Android Build QR](${androidQR})|`;

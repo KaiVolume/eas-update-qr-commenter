@@ -15,6 +15,9 @@ async function run(): Promise<void> {
     const androidQR = expoQRBaseURL + androidBuildID
 
     const defaultMessage =
+      `## EAS Preview\n\n` +
+      `### Commit Message\n\n` +
+      `${github.context.payload.head_commit?.message}\n` +
       `${commentTitle}\n` +
       `\n|iOS|Android|` +
       `\n|:-:|:-:|` +
