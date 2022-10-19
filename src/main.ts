@@ -17,7 +17,7 @@ async function run(): Promise<void> {
     const defaultMessage =
       `## EAS Preview\n\n` +
       `### Commit Message\n\n` +
-      `${github.context.payload.head_commit?.message}\n\n` +
+      `${github.context.payload.head_commit?.message}\n` +
       `${commentTitle}\n` +
       `\n|iOS|Android|` +
       `\n|:-:|:-:|` +
